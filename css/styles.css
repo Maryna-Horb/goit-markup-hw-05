@@ -625,6 +625,7 @@ img {
 }
 .project-link {
   position: relative;
+  text-decoration: none;
 }
 .project-link:hover .project-top-text,
 .project-link:focus .project-top-text {
