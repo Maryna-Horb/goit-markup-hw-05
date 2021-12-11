@@ -34,7 +34,10 @@ body {
   padding-bottom: 94px;
 }
 .hero {
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
     url(../images/Img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -95,7 +98,8 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  color: var(--light-blue-color);
+  color: var(--light-grey-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link-tel {
   font-weight: 500;
@@ -103,10 +107,11 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--light-grey-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link-email:hover,
 .header-link-email:focus {
-  color: var(--light-grey-color);
+  color: var(--light-blue-color);
 }
 .header-link-tel:hover,
 .header-link-tel:focus {
@@ -133,14 +138,22 @@ body {
   font-size: 14px;
   letter-spacing: 0.02em;
   line-height: 1.14;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link:hover,
 .header-link:focus {
   color: var(--light-blue-color);
 }
-.header-link-current:hover,
-.header-link-current:focus {
-  color: var(--grey-color);
+.header-link.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--light-blue-color);
+  position: relative;
+  display: block;
+  bottom: -25px;
+  left: 0px;
+  border-radius: 2px;
 }
 .header-link-current {
   display: flex;
@@ -151,6 +164,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--light-blue-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link,
 .header-link:current {
@@ -206,6 +220,9 @@ body {
   font-size: 16px;
   line-height: 1.87;
   color: white;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    font-weight 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:hover {
   background-color: var(--light-blue-color);
@@ -234,7 +251,6 @@ body {
   width: 70px;
   height: 70px;
 }
-
 .about-us-title {
   margin-top: 0;
   margin-bottom: 10px;
@@ -282,12 +298,38 @@ body {
   display: flex;
   flex-direction: row;
 }
+.activities-wrap {
+  position: relative;
+  overflow: hidden;
+}
 .activities-item {
   flex-basis: calc((100% - 60px) / 3);
   margin-right: 30px;
+  position: relative;
+}
+.activities-item:hover .activities-top-text {
+  transform: translate(0);
 }
 .activities-item:nth-child(3n) {
   margin-right: 0px;
+}
+.activities-top-text {
+  position: absolute;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  top: 224px;
+  left: 0;
+  padding: 27px 82px;
+  width: 100%;
+  margin: 0 auto;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .our-team {
   background-color: var(--second-white-color);
@@ -361,6 +403,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .master-social-link:hover,
 .master-social-link:focus {
@@ -385,8 +429,8 @@ body {
   color: var(--grey-color);
 }
 .regulars-customers-item {
- width: 170px;
- height: 92px;
+  width: 170px;
+  height: 92px;
 }
 .regular-customers-list {
   display: flex;
@@ -399,9 +443,11 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   align-items: center;
-  color: #AFB1B8;
+  color: #afb1b8;
   justify-content: center;
   fill: currentColor;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .regular-icon:hover,
 .regular-icon:focus {
@@ -491,6 +537,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -522,7 +570,6 @@ body {
   display: flex;
   align-items: center;
   border-style: none;
-  border: transparent;
   border-radius: 4px;
   padding: 6px 22px;
   min-width: 73px;
@@ -535,6 +582,9 @@ body {
   letter-spacing: 0.03em;
   color: var(--grey-color);
   border: 1px solid #f5f4fa;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .works-button:hover,
 .works-button:focus {
@@ -561,6 +611,7 @@ img {
   margin-right: 30px;
   margin-bottom: 30px;
   border: 1px solid #eeeeee;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-item:nth-child(3n) {
   margin-right: 0px;
@@ -571,6 +622,33 @@ img {
 .project-item:hover,
 .project-item:focus {
   box-shadow: 1px 4px rgba(0, 0, 0, 0.16);
+}
+.project-link {
+  position: relative;
+}
+.project-link:hover .project-top-text,
+.project-link:focus .project-top-text {
+  transform: translateY(0);
+}
+.project-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.project-top-text {
+  position: absolute;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--white-color);
+  letter-spacing: 0.03em;
+  text-align: center;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  width: 100%;
+  margin: 0 auto;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card {
   padding: 20px 24px;
@@ -589,4 +667,47 @@ img {
   font-size: 16px;
   line-height: 1.87;
   color: var(--light-grey-color);
+}
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden .modal {
+  transform: scale(0.75) rotate(-90deg) translate(1000px, 500px);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal {
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--white-color);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) rotate(0);
+  transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
